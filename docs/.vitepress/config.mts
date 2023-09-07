@@ -4,7 +4,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "帅气的小恐龙的博客～",
   description: "个人心得知识分享",
-  base: '/klsblog',
+  base: '/klsblog/',
   locales: {
     '/': {
       lang: 'zh-CN',
