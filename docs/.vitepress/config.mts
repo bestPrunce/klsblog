@@ -22,7 +22,7 @@ export default defineConfig({
       { text: '首页', link: '/' },
       { text: '前端', 
         items: [
-          { text: 'JavaScript', link: '/qianduan/JavaScript/index.md' },
+          { text: 'JavaScript', link: '/qianduan/JavaScript/JavaScript简介.md' },
           { text: 'Vue', link: '/qianduan/Vue/index.md' },
           { text: 'React', link: '/qianduan/React/index.md' },
           { text: '正则', link: '/qianduan/Regexp/index.md' },
@@ -39,7 +39,7 @@ export default defineConfig({
           { text: 'Runtime API Examples', link: '/api-examples' }
       ],
       '/qianduan/JavaScript/': [
-          { text: '📄 JavaScript简介', link: '/qianduan/JavaScript/index.md' },
+          { text: '📄 JavaScript简介', link: '/qianduan/JavaScript/JavaScript简介.md' },
           { text: '📄 闭包', link: '/qianduan/JavaScript/闭包.md' },
           { text: '📄 promise', link: '/qianduan/JavaScript/promise.md' },
       ],
