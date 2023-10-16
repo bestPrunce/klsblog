@@ -23,6 +23,7 @@ export default defineConfig({
         items: [
           { text: 'JavaScript', link: '/qianduan/javaScript/index.md' },
           { text: 'Vue', link: '/qianduan/vue/index.md' },
+          { text: 'React', link: '/qianduan/react/index.md' },
           { text: '正则', link: '/qianduan/regexp/index.md' },
         ]},
       { text: 'Examples', link: '/markdown-examples' }
@@ -45,6 +46,10 @@ export default defineConfig({
           { text: '📄 Vue简介', link: '/qianduan/vue/index.md' },
           { text: '📄 Vue3项目搭建', link: '/qianduan/vue/vue3项目搭建.md' },
           { text: '📄 Vue二进制流文件下载Excel', link: '/qianduan/vue/vue二进制流文件下载Excel.md' },
+      ],
+      '/qianduan/react/': [
+          { text: '📄 React简介', link: '/qianduan/react/index.md' },
+          { text: '📄 vite搭建React项目.md', link: '/qianduan/react/vite搭建React项目.md' },
       ],
       '/qianduan/regexp/': [
           { text: '📄 正则简介', link: '/qianduan/regexp/index.md' },
