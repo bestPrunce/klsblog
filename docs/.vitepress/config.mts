@@ -23,7 +23,7 @@ export default defineConfig({
       { text: '前端', 
         items: [
           { text: 'JavaScript', link: '/qianduan/JavaScript/JavaScript简介.md' },
-          { text: 'Vue', link: '/qianduan/Vue/index.md' },
+          { text: 'Vue', link: '/qianduan/Vue/Vue简介.md' },
           { text: 'React', link: '/qianduan/React/index.md' },
           { text: '正则', link: '/qianduan/Regexp/index.md' },
         ]},
@@ -39,11 +39,11 @@ export default defineConfig({
           { text: 'Runtime API Examples', link: '/api-examples' }
       ],
       ...qianduan,
-      '/qianduan/Vue/': [
-          { text: `<div style="display:flex; align-items:center">${vueIcon()}<div style="margin-left: 6px;">Vue简介</div></div>`, link: '/qianduan/vue/index.md' },
-          { text: '📄 Vue3项目搭建', link: '/qianduan/Vue/vue3项目搭建.md' },
-          { text: '📄 Vue二进制流文件下载Excel', link: '/qianduan/Vue/vue二进制流文件下载Excel.md' },
-      ],
+      // '/qianduan/Vue/': [
+      //     { text: `<div style="display:flex; align-items:center">${vueIcon()}<div style="margin-left: 6px;">Vue简介</div></div>`, link: '/qianduan/vue/Vue简介.md' },
+      //     { text: '📄 Vue3项目搭建', link: '/qianduan/Vue/vue3项目搭建.md' },
+      //     { text: '📄 Vue二进制流文件下载Excel', link: '/qianduan/Vue/vue二进制流文件下载Excel.md' },
+      // ],
       '/qianduan/React/': [
           { text: `📄 React简介`, link: '/qianduan/React/index.md' },
           { text: '📄 vite搭建React项目.md', link: '/qianduan/React/vite搭建React项目.md' },
