@@ -15,7 +15,7 @@ export default defineConfig({
     logo: '/logo.png',
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: '首页1', link: '/' },
+      { text: '首页', link: '/' },
       { text: '前端', 
         items: [
           { text: 'JavaScript', link: '/qianduan/javaScript/index.md' },
