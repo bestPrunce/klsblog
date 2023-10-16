@@ -11,6 +11,9 @@ export default defineConfig({
       label: '简体中文'
     }
   },
+  head: [
+    ['link', { rel: 'icon', href: '/logo.png' }]
+  ],
   themeConfig: {
     logo: '/logo.png',
     // https://vitepress.dev/reference/default-theme-config
@@ -41,6 +44,7 @@ export default defineConfig({
       '/qianduan/vue/': [
           { text: '📄 Vue简介', link: '/qianduan/vue/index.md' },
           { text: '📄 Vue3项目搭建', link: '/qianduan/vue/vue3项目搭建.md' },
+          { text: '📄 Vue二进制流文件下载Excel', link: '/qianduan/vue/vue二进制流文件下载Excel.md' },
       ],
       '/qianduan/regexp/': [
           { text: '📄 正则简介', link: '/qianduan/regexp/index.md' },
