@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import vueIcon from '../public/svg/vueIcon'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -12,10 +13,10 @@ export default defineConfig({
     }
   },
   head: [
-    ['link', { rel: 'icon', href: '/logo.png' }]
+    ['link', { rel: 'icon', href: '/images/global/logo.png' }]
   ],
   themeConfig: {
-    logo: '/logo.png',
+    logo: '/images/global/logo.png',
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: '首页', link: '/' },
@@ -43,12 +44,12 @@ export default defineConfig({
           { text: '📄 promise', link: '/qianduan/javaScript/promise.md' },
       ],
       '/qianduan/vue/': [
-          { text: '📄 Vue简介', link: '/qianduan/vue/index.md' },
+          { text: `<div style="display:flex; align-items:center">${vueIcon()}<div style="margin-left: 6px;">Vue简介</div></div>`, link: '/qianduan/vue/index.md' },
           { text: '📄 Vue3项目搭建', link: '/qianduan/vue/vue3项目搭建.md' },
           { text: '📄 Vue二进制流文件下载Excel', link: '/qianduan/vue/vue二进制流文件下载Excel.md' },
       ],
       '/qianduan/react/': [
-          { text: '📄 React简介', link: '/qianduan/react/index.md' },
+          { text: `📄 React简介`, link: '/qianduan/react/index.md' },
           { text: '📄 vite搭建React项目.md', link: '/qianduan/react/vite搭建React项目.md' },
       ],
       '/qianduan/regexp/': [
