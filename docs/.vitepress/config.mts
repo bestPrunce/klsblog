@@ -1,6 +1,6 @@
 import { defineConfig } from 'vitepress'
 import vueIcon from '../public/svg/vueIcon'
-
+import qianduan from '../public/layout/qianduan'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "帅气的小恐龙的博客～",
@@ -38,11 +38,7 @@ export default defineConfig({
           { text: 'Markdown Examples', link: '/markdown-examples' },
           { text: 'Runtime API Examples', link: '/api-examples' }
       ],
-      '/qianduan/JavaScript/': [
-          { text: '📄 JavaScript简介', link: '/qianduan/JavaScript/JavaScript简介.md' },
-          { text: '📄 闭包', link: '/qianduan/JavaScript/闭包.md' },
-          { text: '📄 promise', link: '/qianduan/JavaScript/promise.md' },
-      ],
+      ...qianduan,
       '/qianduan/Vue/': [
           { text: `<div style="display:flex; align-items:center">${vueIcon()}<div style="margin-left: 6px;">Vue简介</div></div>`, link: '/qianduan/vue/index.md' },
           { text: '📄 Vue3项目搭建', link: '/qianduan/Vue/vue3项目搭建.md' },
