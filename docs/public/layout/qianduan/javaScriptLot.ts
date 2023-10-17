@@ -3,8 +3,7 @@ const jsPath = '/qianduan/JavaScript/';
 const icon = jsIcon()
 const arr = [
     'JavaScript简介',
-    '闭包',
-    'promise',
+    'JS实现复制文本内容',
 ]
 const ret = arr.map((item) => {
     return {
