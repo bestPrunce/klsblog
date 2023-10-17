@@ -22,7 +22,7 @@ export default defineConfig({
       { text: '前端', 
         items: [
           { text: 'JavaScript', link: '/qianduan/JavaScript/JavaScript简介.md' },
-          { text: 'Css', link: '/qianduan/Css/Css简介.md' },
+          { text: 'CSS', link: '/qianduan/CSS/CSS简介.md' },
           { text: 'Vue', link: '/qianduan/Vue/Vue简介.md' },
           { text: 'React', link: '/qianduan/React/React简介.md' },
           { text: '正则', link: '/qianduan/Regexp/正则简介.md' },
