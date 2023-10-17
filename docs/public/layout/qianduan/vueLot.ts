@@ -4,7 +4,8 @@ const icon = vueIcon()
 const arr = [
     'Vue简介',
     'Vue3项目搭建',
-    'Vue二进制流文件下载Excel'
+    'Vue二进制流文件下载Excel',
+    'Vue全局路由设置',
 ]
 const ret = arr.map((item) => {
     return {
