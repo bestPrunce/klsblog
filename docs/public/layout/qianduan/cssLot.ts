@@ -3,8 +3,6 @@ const jsPath = '/qianduan/CSS/';
 const icon = cssIcon()
 const arr = [
     'CSS简介',
-    'CSS变量',
-    'CSS小技巧',
 ]
 const ret = arr.map((item) => {
     return {
