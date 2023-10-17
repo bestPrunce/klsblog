@@ -4,7 +4,7 @@ const icon = jsIcon()
 const arr = [
     'JavaScript简介',
     '闭包',
-    'promise'
+    'promise',
 ]
 const ret = arr.map((item) => {
     return {
