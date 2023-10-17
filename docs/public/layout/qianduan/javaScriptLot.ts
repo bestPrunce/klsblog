@@ -4,6 +4,7 @@ const icon = jsIcon()
 const arr = [
     'JavaScript简介',
     'JS实现复制文本内容',
+    'JS扁平数据结构转Tree',
 ]
 const ret = arr.map((item) => {
     return {
