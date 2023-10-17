@@ -1,5 +1,5 @@
 import jsIcon from "../../svg/jsIcon";
-const jsPath = '/qianduan/CSS/';
+const jsPath = '/qianduan/css1/';
 const icon = jsIcon()
 const arr = [
     'CSS简介',
