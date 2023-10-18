@@ -1,0 +1,321 @@
+# MutationObserver
+
+## 简介：
+MutationObserver接口提供了监视DOM树所做更改的功能。它被设计为旧的Mutation Events特性的替代品，后者是DOM3 Events规范的一部分。
+
+## 构造函数
+`MutationObserver()`
+创建并返回一个新的`MutationObserver`，该MutationObserver将在DOM发生更改时调用指定的回调函数。
+
+### Syntax
+```javaScript
+new MutationObserver(callback)
+```
+
+### Parameters
+
+#### callback
+在给定观察到的节点或子树和选项的情况下，每次 DOM 更改时都会调用该函数。回调函数接受两个参数作为输入：
+- MutationRecord 对象数组，描述发生的每个变化； 
+- 调用回调的 MutationObserver。 这最常用于使用 MutationObserver.disconnect() 断开观察者的连接。
+
+### 返回值
+一个新的 MutationObserver 对象，配置为在 DOM 发生变化时调用指定的回调。
+
+### Example
+
+#### HTML
+```html
+<button id="add">Add child</button>
+<button id="remove">Remove child</button>
+<button id="reset">Reset example</button>
+<ul id="container"></ul>
+<pre id="log"></pre>
+```
+
+#### CSS
+```css
+#container,
+#log {
+  height: 150px;
+  overflow: scroll;
+}
+#container li {
+  background-color: paleturquoise;
+  margin: 0.5rem;
+}
+```
+
+#### JavaScript
+```javascript
+const add = document.querySelector("#add");
+const remove = document.querySelector("#remove");
+const reset = document.querySelector("#reset");
+const container = document.querySelector("#container");
+const log = document.querySelector("#log");
+
+let namePrefix = 0;
+
+add.addEventListener("click", () => {
+  const newItem = document.createElement("li");
+  newItem.textContent = `item ${namePrefix}`;
+  container.appendChild(newItem);
+  namePrefix++;
+});
+
+remove.addEventListener("click", () => {
+  const itemToRemove = document.querySelector("li");
+  if (itemToRemove) {
+    itemToRemove.parentNode.removeChild(itemToRemove);
+  }
+});
+
+reset.addEventListener("click", () => {
+  document.location.reload();
+});
+
+function logChanges(records, observer) {
+  for (const record of records) {
+    for (const addedNode of record.addedNodes) {
+      log.textContent = `Added: ${addedNode.textContent}\n${log.textContent}`;
+    }
+    for (const removedNode of record.removedNodes) {
+      log.textContent = `Removed: ${removedNode.textContent}\n${log.textContent}`;
+    }
+    if (record.target.childNodes.length === 0) {
+      log.textContent = `Disconnected\n${log.textContent}`;
+      observer.disconnect();
+    }
+    console.log(record.target.childNodes.length);
+  }
+}
+
+const observerOptions = {
+  childList: true,
+  subtree: true,
+};
+
+const observer = new MutationObserver(logChanges);
+observer.observe(container, observerOptions);
+```
+#### 结果
+尝试单击“Add child”以添加列表项，然后单击“Remove child”以将其删除。 观察者回调记录添加和删除操作。 一旦列表为空，观察者就会记录一条“Disconnected”消息并断开观察者的连接。
+“Reset example”按钮会重新加载示例，以便您可以再次尝试。
+
+## 实例方法
+
+### `disconnect()`
+停止`MutationObserver`实例接收进一步的通知，除非再次调用`observe()`。
+
+#### Syntax
+```javaScript
+disconnect()
+```
+
+#### Parameters
+none
+
+#### 返回值
+undefined
+
+#### 注释：
+如果被观察的元素从 DOM 中删除，然后被浏览器的垃圾收集机制释放，MutationObserver 将停止观察被删除的元素。然而，MutationObserver 本身可以继续存在以观察其他现有元素。
+
+#### Examples
+```javaScript
+const targetNode = document.querySelector("#someElement");
+const observerOptions = {
+  childList: true,
+  attributes: true,
+};
+
+const observer = new MutationObserver(callback);
+observer.observe(targetNode, observerOptions);
+
+/* some time later… */
+
+observer.disconnect();
+
+```
+
+### `observe()`
+- 配置`MutationObserver`，使其在DOM发生与给定选项匹配的更改时，通过回调函数开始接收通知。
+- `MutationObserver` 方法 `observe()` 配置 `MutationObserver` 回调以开始接收与给定选项匹配的 `DOM` 更改的通知。
+- 根据配置，观察者可以观察 DOM 树中的单个节点，或者该节点及其部分或全部后代节点。
+- 要停止 MutationObserver（以便不再触发其任何回调），请调用 `MutationObserver.disconnect()`。
+
+#### Syntax
+```javaScript
+observe(target, options)
+```
+
+### Parameters
+
+`target`
+DOM 树中的 DOM 节点（可能是一个元素）用于监视更改，或者作为要监视的节点子树的根。
+
+`options`
+提供选项的对象，这些选项描述应将哪些 `DOM` 突变报告给 `mutationObserver` 的回调。 当您调用 `observe()` 时，`childList、attributes` 和/或`characterData` 之一至少必须为true。 否则会抛出 TypeError 异常。
+
+例如：
+
+1. `subtree`
+    - 设置为 true 可将监视扩展到以目标为根的节点的整个子树。 然后，所有其他属性都扩展到子树中的所有节点，而不是仅应用于目标节点。 默认值为 false。
+2. `childList`
+    - 设置为 true 以监视目标节点（如果子树为 true，则监视其后代）以添加新的子节点或删除现有的子节点。 默认值为 false。
+3. `attributes`
+    - 设置为 true 可监视正在监视的一个或多个节点上属性值的更改。 如果指定了 attributeFilter 或 attributeOldValue 之一，则默认值为 true，否则默认值为 false。
+4. `attributeFilter`
+    - 要监视的特定属性名称的数组。 如果不包含此属性，则对所有属性的更改会导致突变通知。
+5. `attributeOldValue`
+    - 设置为 true 以记录在监视一个或多个节点的属性更改时更改的任何属性的先前值； 有关监视属性更改和记录值的示例，请参阅监视属性值。 默认值为 false。
+6.  `characterData`
+    - 设置为 true 可监视指定的目标节点（如果子树为 true，则监视其后代）以了解该节点或多个节点中包含的字符数据的更改。 如果指定了 characterDataOldValue，则默认值为 true，否则默认值为 false。
+7. `characterDataOldValue`
+    - 设置为 true 可在受监视节点上的文本发生更改时记录节点文本的先前值。 默认值为 false。
+
+#### 返回值
+null(undefined)
+
+#### 例外情况
+类型错误
+有下列情形之一的，予以抛出：
+1. 这些选项的配置使得实际上不会监视任何内容。 （例如，如果 `childList、attributes` 和 `characterData` 均为 `false`。）
+2. `options.attributes` 的值为 `false`（表示不监视属性更改），但 `attributeOldValue` 为 `true` 和/或 `attributeFilter` 存在。
+3. `characterDataOldValue` 选项为`true`，但 `characterData` 为`false`（表示不监视字符更改）。
+
+### `takeRecords()`
+从`MutationObserver`的通知队列中移除所有挂起的通知，并将它们返回到一个新的`MutationRecord`对象数组中。
+
+#### 使用说明
+重用 `MutationObservers`
+您可以在同一个 `MutationObserver` 上多次调用`observe()`来监视 `DOM` 树不同部分的更改和/或不同类型的更改。 有一些注意事项需要注意：
+
+如果您在已被同一个 `MutationObserver` 观察的节点上调用`observe()`，则在激活新观察者之前，所有现有观察者都会自动从所有正在观察的目标中删除。
+如果目标上尚未使用相同的 `MutationObserver`，则现有的观察者将被保留，并添加新的观察者。
+
+#### Examples
+
+*基本用法*
+```javaScript
+// identify an element to observe
+const elementToObserve = document.querySelector("#targetElementId");
+
+// create a new instance of `MutationObserver` named `observer`,
+// passing it a callback function
+const observer = new MutationObserver(() => {
+  console.log("callback that runs when observer is triggered");
+});
+
+// call `observe()` on that MutationObserver instance,
+// passing it the element to observe, and the options object
+observer.observe(elementToObserve, { subtree: true, childList: true });
+```
+
+*使用属性过滤器*
+在此示例中，突变观察器被设置为监视显示聊天室中用户名称的子树中包含的任何元素中的状态和用户名属性的更改。 例如，这可以让代码反映对用户昵称的更改，或者将其标记为远离键盘 (AFK) 或离线。
+
+```javaScript
+function callback(mutationList) {
+  mutationList.forEach((mutation) => {
+    switch (mutation.type) {
+      case "attributes":
+        switch (mutation.attributeName) {
+          case "status":
+            userStatusChanged(mutation.target.username, mutation.target.status);
+            break;
+          case "username":
+            usernameChanged(mutation.oldValue, mutation.target.username);
+            break;
+        }
+        break;
+    }
+  });
+}
+
+const userListElement = document.querySelector("#userlist");
+
+const observer = new MutationObserver(callback);
+observer.observe(userListElement, {
+  attributeFilter: ["status", "username"],
+  attributeOldValue: true,
+  subtree: true,
+});
+```
+
+*监控属性值*
+在此示例中，我们观察元素的属性值更改，并添加一个按钮，用于在“ltr”和“rtl”之间切换元素的 dir 属性。 在观察者的回调中，我们记录属性的旧值。
+
+```html
+<button id="toggle">Toggle direction</button><br />
+<div id="container">
+  <input type="text" id="rhubarb" dir="ltr" value="Tofu" />
+</div>
+<pre id="output"></pre>
+```
+```css
+body {
+  background-color: paleturquoise;
+}
+
+button,
+input,
+pre {
+  margin: 0.5rem;
+}
+```
+```javaScript
+const toggle = document.querySelector("#toggle");
+const rhubarb = document.querySelector("#rhubarb");
+const observerTarget = document.querySelector("#container");
+const output = document.querySelector("#output");
+
+toggle.addEventListener("click", () => {
+  rhubarb.dir = rhubarb.dir === "ltr" ? "rtl" : "ltr";
+});
+
+const config = {
+  subtree: true,
+  attributeOldValue: true,
+};
+
+const callback = (mutationList) => {
+  for (const mutation of mutationList) {
+    if (mutation.type === "attributes") {
+      output.textContent = `The ${mutation.attributeName} attribute was modified from "${mutation.oldValue}".`;
+    }
+  }
+};
+
+const observer = new MutationObserver(callback);
+observer.observe(observerTarget, config);
+```
+### Example
+```javaScript
+// Select the node that will be observed for mutations
+const targetNode = document.getElementById("some-id");
+
+// Options for the observer (which mutations to observe)
+const config = { attributes: true, childList: true, subtree: true };
+
+// Callback function to execute when mutations are observed
+const callback = (mutationList, observer) => {
+  for (const mutation of mutationList) {
+    if (mutation.type === "childList") {
+      console.log("A child node has been added or removed.");
+    } else if (mutation.type === "attributes") {
+      console.log(`The ${mutation.attributeName} attribute was modified.`);
+    }
+  }
+};
+
+// Create an observer instance linked to the callback function
+const observer = new MutationObserver(callback);
+
+// Start observing the target node for configured mutations
+observer.observe(targetNode, config);
+
+// Later, you can stop observing
+observer.disconnect();
+
+```

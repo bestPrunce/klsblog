@@ -6,6 +6,7 @@ const arr = [
     'JS实现复制文本内容',
     'JS扁平数据结构转Tree',
     'JS必备小技巧',
+    'MutationObserver',
 ]
 const ret = arr.map((item) => {
     return {
