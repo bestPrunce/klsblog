@@ -1,6 +1,8 @@
+import folderIcon from "../../svg/folderIcon";
 import jsIcon from "../../svg/jsIcon";
 const jsPath = '/qianduan/JavaScript/';
 const icon = jsIcon()
+const folder = folderIcon()
 const arr = [
     'JavaScript简介',
     'JS实现复制文本内容',
@@ -24,7 +26,7 @@ const ret = arr.map((item) => {
     } else {
         return {
             text: `<div style="display: flex; align-items:center">
-                        ${icon}
+                        ${folder}
                         <div style="margin-left: 6px;">${item.name}</div>
                     </div>`,
             collapsed: true,
