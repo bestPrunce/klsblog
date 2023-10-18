@@ -8,7 +8,6 @@ const arr = [
     'JS实现复制文本内容',
     'JS扁平数据结构转Tree',
     'JS必备小技巧',
-    'MutationObserver',
     {
         name: 'MutationObserver',
         items: ['MutationObserver简介', '构造器', '实例方法']
