@@ -1,6 +1,7 @@
 // @ts-ignore
 import { defineConfig } from 'vitepress'
 import qianduan from '../public/layout/qianduan'
+import houduan from '../public/layout/houduan'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "帅气的小恐龙的博客～",
@@ -23,26 +24,36 @@ export default defineConfig({
     },
     nav: [
       { text: '首页', link: '/' },
-      { text: '前端', 
+      {
+        text: '前端',
         items: [
           { text: 'JavaScript', link: '/qianduan/JavaScript/JavaScript简介.md' },
           { text: 'CSS', link: '/qianduan/CSS/CSS简介.md' },
           { text: 'Vue', link: '/qianduan/Vue/Vue简介.md' },
           { text: 'React', link: '/qianduan/React/React简介.md' },
           { text: '正则', link: '/qianduan/Regexp/正则简介.md' },
-        ]},
-      { text: 'Examples', link: '/markdown-examples' }
+        ]
+      },
+      {
+        text: '后端', items: [
+          { text: 'Node', link: '/houduan/Node/NodeJS简介.md' },
+        ]
+      },
+      { text: '数据库', link: '/api-examples' },
+      { text: '工具', link: '/api-examples' },
+      { text: 'Examples', link: '/markdown-examples' },
     ],
     sidebar: {
       '/markdown-examples': [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
+        { text: 'Markdown Examples', link: '/markdown-examples' },
+        { text: 'Runtime API Examples', link: '/api-examples' }
       ],
       '/api-examples': [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
+        { text: 'Markdown Examples', link: '/markdown-examples' },
+        { text: 'Runtime API Examples', link: '/api-examples' }
       ],
       ...qianduan,
+      ...houduan
     },
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
