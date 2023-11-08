@@ -1,12 +1,8 @@
-import vueIcon from "../../svg/vueIcon";
-const jsPath = '/qianduan/Vue/';
-const icon = vueIcon()
+import pythonIcon from "../../svg/pythonIcon";
+const jsPath = '/houduan/Python/';
+const icon = pythonIcon()
 const arr = [
-    'Vue简介',
-    'Vue3项目搭建',
-    'Vue二进制流文件下载Excel',
-    'Vue全局路由设置',
-    'Vue中优雅的使用Echarts',
+    'python简介',
 ]
 const ret = arr.map((item) => {
     return {

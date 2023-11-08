@@ -37,6 +37,7 @@ export default defineConfig({
       {
         text: '后端', items: [
           { text: 'Node', link: '/houduan/Node/NodeJs简介.md' },
+          { text: 'Python', link: '/houduan/Python/python简介.md' },
         ]
       },
       { text: '数据库', link: '/api-examples' },
