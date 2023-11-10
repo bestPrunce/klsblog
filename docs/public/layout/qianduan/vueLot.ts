@@ -7,6 +7,7 @@ const arr = [
     'Vue二进制流文件下载Excel',
     'Vue全局路由设置',
     'Vue中优雅的使用Echarts',
+    'ElementPlus修改主题色',
 ]
 const ret = arr.map((item) => {
     return {
