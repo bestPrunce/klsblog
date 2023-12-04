@@ -2,6 +2,7 @@
 import { defineConfig } from 'vitepress'
 import qianduan from '../public/layout/qianduan'
 import houduan from '../public/layout/houduan'
+import system from '../public/layout/system'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "帅气的小恐龙的博客～",
@@ -41,6 +42,10 @@ export default defineConfig({
         ]
       },
       { text: '数据库', link: '/api-examples' },
+      { text: '操作系统', items: [
+          { text: 'Linux', link: '/system/Linux/Linux简介.md' }
+        ]
+      },
       { text: '工具', link: '/api-examples' },
       { text: 'Examples', link: '/markdown-examples' },
     ],
@@ -54,7 +59,8 @@ export default defineConfig({
         { text: 'Runtime API Examples', link: '/api-examples' }
       ],
       ...qianduan,
-      ...houduan
+      ...houduan,
+      ...system,
     },
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
