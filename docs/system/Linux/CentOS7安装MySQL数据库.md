@@ -17,7 +17,11 @@ mariadb-libs-5.5.60-1.el7_5.x86_64
 [点击下载 mysql-8.0.28-el7-x86_64.tar.gz](https://mirrors.aliyun.com/mysql/MySQL-8.0/mysql-8.0.28-el7-x86_64.tar.gz?spm=a2c6h.25603864.0.0.76a070b2JJfVQh)
 
 ## 4、上传文件到服务器
-将mysql-5.7.30-el7-x86_64.tar.gz压缩文件上传至/opt目录；
+使用 `rz` 命令通过终端会话接收文件。
+安装rz
+```bash
+sudo yum install lrzsz
+```
 
 ## 5、将MySQL压缩文件解压至/usr/local目录
 ``` Shell

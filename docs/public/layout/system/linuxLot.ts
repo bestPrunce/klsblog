@@ -3,6 +3,8 @@ const jsPath = '/system/Linux/';
 const icon = nodeIcon()
 const arr = [
     'Linux简介',
+    'CentOS7安装nodejs',
+    'CentOS7安装git',
     'CentOS7安装MySQL数据库',
 ]
 const ret = arr.map((item) => {
