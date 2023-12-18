@@ -5,6 +5,7 @@ const arr = [
     'Linux简介',
     'CentOS7安装nodejs',
     'CentOS7安装git',
+    'pm2启动多个node项目',
     'CentOS7安装MySQL数据库',
 ]
 const ret = arr.map((item) => {
