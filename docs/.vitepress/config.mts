@@ -59,12 +59,9 @@ export default defineConfig({
         { text: 'Markdown Examples', link: '/markdown-examples' },
         { text: 'Runtime API Examples', link: '/api-examples' }
       ],
-      '/houduan/Python': [
-        { text: 'python简介', link: '/houduan/Python/python简介' },
-      ],
-      // ...qianduan,
-      // ...houduan,
-      // ...system,
+      ...qianduan,
+      ...houduan,
+      ...system,
     },
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
