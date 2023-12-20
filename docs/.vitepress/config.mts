@@ -10,7 +10,7 @@ export default defineConfig({
   base: '/klsblog/',
   locales: {
     '/': {
-      lang: 'zh-CN',
+      lang: 'en-US',
       label: '简体中文'
     }
   },

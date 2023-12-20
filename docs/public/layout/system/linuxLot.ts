@@ -43,6 +43,7 @@ function formatsideBar(data: any[]) {
         if(item.items) {
             return {
                 text: `<div style="display: flex; align-items:center">
+                            ${folder}
                             <div style="margin-left: 6px;">${item.name}</div>
                         </div>`,
                 collapsed: true,
@@ -52,6 +53,7 @@ function formatsideBar(data: any[]) {
             // link: `${jsPath}${item.name}/${v2}.md`,
             return {
                 text: `<div style="display: flex; align-items:center">
+                            ${item.icon}
                             <div style="margin-left: 6px;">${item.name}</div>
                         </div>`,
                 link: `${jsPath}${encodeURIComponent(item.name)}.md`
