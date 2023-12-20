@@ -8,12 +8,8 @@ export default defineConfig({
   title: "帅气的小恐龙的博客～",
   description: "个人心得知识分享",
   base: '/klsblog/',
-  locales: {
-    '/': {
-      lang: 'en-US',
-      label: '简体中文'
-    }
-  },
+  lang: 'en-US',
+  lastUpdated: true,
   head: [
     ['link', { rel: 'icon', href: 'https://bestprunce.github.io/klsblog/images/global/logo.png' }]
   ],
