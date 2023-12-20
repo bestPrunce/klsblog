@@ -1,23 +1,33 @@
 import nodeIcon from "../../svg/nodeIcon";
 const jsPath = '/houduan/Node/';
+import { formatsideBar } from "../../utils/tools";
 const icon = nodeIcon()
 const arr = [
-    'NodeJs简介',
-    '常用的内置模块',
-    'Express模块',
-    'Web开发模式与身份认证',
-    'NodeJs上传图片到服务器',
-    'NodeJs操作MySQL数据库',
+    {
+        name: 'NodeJs简介',
+        icon: icon
+    },
+    {
+        name: '常用的内置模块',
+        icon: icon
+    },
+    {
+        name: 'Express模块',
+        icon: icon
+    },
+    {
+        name: 'Web开发模式与身份认证',
+        icon: icon
+    },
+    {
+        name: 'NodeJs上传图片到服务器',
+        icon: icon
+    },
+    {
+        name: 'NodeJs操作MySQL数据库',
+        icon: icon
+    },
 ]
-const ret = arr.map((item) => {
-    return {
-        text: `<div style="display: flex; align-items:center">
-                    ${icon}
-                    <div style="margin-left: 6px;">${item}</div>
-                </div>`,
-        link: `${jsPath}${item}.md`
-    }
-})
 export default {
-    [jsPath]: ret,
+    [jsPath]: formatsideBar(arr, jsPath),
 }

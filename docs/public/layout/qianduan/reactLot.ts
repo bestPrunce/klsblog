@@ -1,19 +1,17 @@
 import reactIcon from "../../svg/reactIcon";
 const jsPath = '/qianduan/React/';
+import { formatsideBar } from "../../utils/tools";
 const icon = reactIcon()
 const arr = [
-    'React简介',
-    'vite搭建React项目',
+    {
+        name: 'React简介',
+        icon: icon
+    },
+    {
+        name: 'vite搭建React项目',
+        icon: icon
+    },
 ]
-const ret = arr.map((item) => {
-    return {
-        text: `<div style="display: flex; align-items:center">
-                    ${icon}
-                    <div style="margin-left: 6px;">${item}</div>
-                </div>`,
-        link: `${jsPath}${item}.md`
-    }
-})
 export default {
-    [jsPath]: ret,
+    [jsPath]: formatsideBar(arr, jsPath),
 }

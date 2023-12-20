@@ -1,18 +1,13 @@
 import pythonIcon from "../../svg/pythonIcon";
 const jsPath = '/houduan/Python/';
+import { formatsideBar } from "../../utils/tools";
 const icon = pythonIcon()
 const arr = [
-    'python简介',
+    {
+        name: 'python简介',
+        icon: icon
+    },
 ]
-const ret = arr.map((item) => {
-    return {
-        text: `<div style="display: flex; align-items:center">
-                    ${icon}
-                    <div style="margin-left: 6px;">${item}</div>
-                </div>`,
-        link: `${jsPath}${item}.md`
-    }
-})
 export default {
-    [jsPath]: ret,
+    [jsPath]: formatsideBar(arr, jsPath),
 }

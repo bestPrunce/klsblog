@@ -1,20 +1,21 @@
 import cssIcon from "../../svg/cssIcon";
 const jsPath = '/qianduan/CSS/';
+import { formatsideBar } from "../../utils/tools";
 const icon = cssIcon()
 const arr = [
-    'CSS简介',
-    'CSS变量',
-    'CSS小技巧',
+    {
+        name: 'CSS简介',
+        icon: icon
+    },
+    {
+        name: 'CSS变量',
+        icon: icon
+    },
+    {
+        name: 'CSS小技巧',
+        icon: icon
+    },
 ]
-const ret = arr.map((item) => {
-    return {
-        text: `<div style="display: flex; align-items:center">
-                    ${icon}
-                    <div style="margin-left: 6px;">${item}</div>
-                </div>`,
-        link: `${jsPath}${item}.md`
-    }
-})
 export default {
-    [jsPath]: ret,
+    [jsPath]: formatsideBar(arr, jsPath),
 }

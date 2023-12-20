@@ -1,46 +1,44 @@
 import folderIcon from "../../svg/folderIcon";
 import jsIcon from "../../svg/jsIcon";
 const jsPath = '/qianduan/JavaScript/';
+import { formatsideBar } from "../../utils/tools";
 const icon = jsIcon()
 const folder = folderIcon()
 const arr = [
-    'JavaScript简介',
-    'JS实现复制文本内容',
-    'JS扁平数据结构转Tree',
-    'JS必备小技巧',
+    {
+        name: 'JavaScript简介',
+        icon: icon
+    },
+    {
+        name: 'JS实现复制文本内容',
+        icon: icon
+    },
+    {
+        name: 'JS扁平数据结构转Tree',
+        icon: icon
+    },
+    {
+        name: 'JS必备小技巧',
+        icon: icon
+    },
     {
         name: 'MutationObserver',
-        items: ['MutationObserver简介', '构造器', '实例方法']
+        icon: folder,
+        items: [
+            {
+                name: 'MutationObserver简介',
+                icon: icon
+            },
+            {
+                name: '构造器',
+                icon: icon
+            },
+            {
+                name: '实例方法',
+                icon: icon
+            },]
     },
 ]
-const ret = arr.map((item) => {
-    if(typeof item === 'string') {
-        return {
-            text: `<div style="display: flex; align-items:center">
-                        ${icon}
-                        <div style="margin-left: 6px;">${item}</div>
-                    </div>`,
-            link: `${jsPath}${item}.md`
-        }
-    } else {
-        return {
-            text: `<div style="display: flex; align-items:center">
-                        ${folder}
-                        <div style="margin-left: 6px;">${item.name}</div>
-                    </div>`,
-            collapsed: true,
-            items: item.items.map((v2) => {
-                return {
-                    text: `<div style="display: flex; align-items:center">
-                                ${icon}
-                                <div style="margin-left: 6px;">${v2}</div>
-                            </div>`,
-                    link: `${jsPath}${item.name}/${v2}.md`,
-                }
-            })
-        }
-    }
-})
 export default {
-    [jsPath]: ret,
+    [jsPath]: formatsideBar(arr, jsPath),
 }

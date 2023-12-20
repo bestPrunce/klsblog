@@ -1,23 +1,33 @@
 import vueIcon from "../../svg/vueIcon";
 const jsPath = '/qianduan/Vue/';
+import { formatsideBar } from "../../utils/tools";
 const icon = vueIcon()
 const arr = [
-    'Vue简介',
-    'Vue3项目搭建',
-    'Vue二进制流文件下载Excel',
-    'Vue全局路由设置',
-    'Vue中优雅的使用Echarts',
-    'ElementPlus修改主题色',
-]
-const ret = arr.map((item) => {
-    return {
-        text: `<div style="display: flex; align-items:center">
-                    ${icon}
-                    <div style="margin-left: 6px;">${item}</div>
-                </div>`,
-        link: `${jsPath}${item}.md`
+    {
+        name: 'Vue简介',
+        icon: icon
+    },
+    {
+        name: 'Vue3项目搭建',
+        icon: icon
+    },
+    {
+        name: 'Vue二进制流文件下载Excel',
+        icon: icon
+    },
+    {
+        name: 'Vue全局路由设置',
+        icon: icon
+    },
+    {
+        name: 'Vue中优雅的使用Echarts',
+        icon: icon
+    },
+    {
+        name: 'ElementPlus修改主题色',
+        icon: icon
     }
-})
+]
 export default {
-    [jsPath]: ret,
+    [jsPath]: formatsideBar(arr, jsPath),
 }
