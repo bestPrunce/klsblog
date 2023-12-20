@@ -56,7 +56,13 @@ export default defineConfig({
       ],
       ...qianduan,
       ...houduan,
-      ...system,
+      // ...system,
+      "/system/Linux/": [
+        {
+          "text": "<div style=\"display: flex; align-items:center\">\n                            <div style=\"margin-left: 6px;\">Linux简介</div>\n                        </div>",
+          "link": "/system/Linux/Linux%E7%AE%80%E4%BB%8B.md"
+        }
+      ]
     },
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
