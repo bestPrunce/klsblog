@@ -16,7 +16,7 @@ export default defineConfig({
   },
   lastUpdated: true,
   head: [
-    ['link', { rel: 'icon', href: 'https://bestprunce.github.io/klsblog/images/global/logo.png' }]
+    ['link', { rel: 'icon', href: '/images/global/logo.png' }]
   ],
   themeConfig: {
     logo: '/images/global/logo.png',

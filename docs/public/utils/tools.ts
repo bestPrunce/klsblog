@@ -3,17 +3,13 @@ export function formatsideBar(data: any[], path) {
         if(item.items) {
             const childPath = `${path}/${item.name}/`
             return {
-                text: `<div style="display: flex; align-items:center">
-                            <div style="margin-left: 6px;">${item.name}</div>
-                        </div>`,
+                text: `${item.name}`,
                 collapsed: true,
                 items: formatsideBar(item.items, childPath)
             }
         } else {
             return {
-                text: `<div style="display: flex; align-items:center">
-                            <div style="margin-left: 6px;">${item.name}</div>
-                        </div>`,
+                text: `${item.name}`,
                 link: `${path}${encodeURIComponent(item.name)}.md`
             }
         }
