@@ -56,16 +56,16 @@ npm -v
 ## 3、更换镜像
 
 ```bash
-npm install -g cnpm --registry=https://registry.npm.taobao.org
+npm install -g cnpm --registry=https://registry.npmmirror.com
 ```
 ```bash
 cnpm i yarn -g
-yarn config set registry https://registry.npm.taobao.org
+yarn config set registry https://registry.npmmirror.com
 ```
 ```bash
 cnpm i pnpm -g
 //查看源
-pnpm config get registry 
+pnpm config get registry
 //切换淘宝源
-pnpm config set registry https://registry.npm.taobao.org 
+pnpm config set registry https://registry.npmmirror.com
 ```
