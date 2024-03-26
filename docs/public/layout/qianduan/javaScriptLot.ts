@@ -17,6 +17,9 @@ const arr = [
         name: '如何解决图片防盗链',
     },
     {
+        name: 'js改变页面上输入框的值',
+    },
+    {
         name: 'MutationObserver',
         items: [
             {
