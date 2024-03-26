@@ -14,6 +14,9 @@ const arr = [
         name: 'JS必备小技巧',
     },
     {
+        name: '如何解决图片防盗链',
+    },
+    {
         name: 'MutationObserver',
         items: [
             {

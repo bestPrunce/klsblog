@@ -17,6 +17,9 @@ const arr = [
         name: 'CentOS7安装MySQL数据库',
     },
     {
+        name: 'CentOS7下清除挖矿病毒',
+    },
+    {
         name: 'Nginx',
         items: [{
             name: 'Nginx简介',

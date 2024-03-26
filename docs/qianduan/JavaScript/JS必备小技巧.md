@@ -65,3 +65,10 @@ const arr = [2, 8, 15, 4];
 Math.max(...arr); // 15
 Math.min(...arr); // 2
 ```
+
+## 7、padstart()
+padstart()方法用于将当前字符串用另一个字符串填充，以便产生一个达到给定长度的新字符串。填充从当前字符串的开始(左侧)应用。
+```javaScript
+const str ='5';
+console.log(str.padstart(2，'0'));//输出'05‘
+```
