@@ -21,11 +21,17 @@ const arr = [
     },
     {
         name: 'Nginx',
-        items: [{
-            name: 'Nginx简介',
-        }, {
-            name: 'CentOS7安装Nginx',
-        }]
+        items: [
+            {
+                name: 'Nginx简介',
+            },
+            {
+                name: 'CentOS7安装Nginx',
+            },
+            {
+                name: 'nginx配置https',
+            }
+        ]
     },
 ]
 export default {
