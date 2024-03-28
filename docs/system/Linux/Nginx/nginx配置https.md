@@ -63,4 +63,24 @@
     }
 ```
 
-## 方案二（待更新）
+## 方案二（需要新开一个端口这里我的是开了个8000端口做映射）
+当你本地端口是9000你想把它设置为https的时候就不能用9000端口了，因为他已经被服务占用了，所以需要换一个端口才能使用
+```bash
+    server {
+        listen       8000 ssl http2;
+        listen       [::]:8000 ssl http2;
+        server_name  www.xxx.cn;
+
+        ssl_certificate "/etc/nginx/conf/cert/www.xxx.cn.pem";
+        ssl_certificate_key "/etc/nginx/conf/cert/www.xxx.cn.key";
+        ssl_session_cache shared:SSL:1m;
+        ssl_session_timeout  10m;
+        ssl_ciphers HIGH:!aNULL:!MD5;
+        ssl_prefer_server_ciphers on;
+        # Load configuration files for the default server block.
+        include /etc/nginx/default.d/*.conf;
+        location / {
+        	proxy_pass http://xxx.xx.xxx.xxx:9000;
+    	}
+    }
+```
