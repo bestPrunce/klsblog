@@ -10,6 +10,9 @@ const arr = [
     {
         name: 'CSS小技巧',
     },
+    {
+        name: 'CSS嵌套(2023重大更新！)',
+    },
 ]
 export default {
     [jsPath]: formatsideBar(arr, jsPath),
