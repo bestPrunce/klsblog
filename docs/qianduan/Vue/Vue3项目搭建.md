@@ -262,6 +262,29 @@ npx husky-init
 . "$(dirname -- "$0")/_/husky.sh"
 pnpm run format
 ```
+tips: 配置husky补充，按照上边配置了之后会遇到一个问题就是：每次git commit -m 之后他会重新format一下我还要自己在提交一下，有没有什么办法让他format之后自动提交呢？
+
+安装`lint-staged` ：
+```javascript
+pnpm add -D lint-staged
+```
+`package.json`里添加（注意是和name同级哦，也就是最外层）：
+```javascript
+"lint-staged": {
+    "*.{html,vue,ts,js,json,md}": [
+        "pnpm run format",
+        "git add"
+    ]
+},
+```
+`.husky/pre-commit`改为：
+```javascript
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+npx lint-staged
+```
+
 ## 8、强制使用pnpm包管理器工具
 团队开发项目的时候，需要统一包管理器工具,因为不同包管理器工具下载同一个依赖,可能版本不一样,
 导致项目出现bug问题,因此包管理器工具需要统一管理！！！
